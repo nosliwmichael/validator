@@ -170,10 +170,13 @@ public class Validator {
 	/**
 	 * This ends the Validator chain. 
 	 * If any one method in the chain was false, this will be false.
+	 * This method also resets the "valid" property so that the instance can be reused for future tests.
 	 * @return boolean
 	 */
 	public boolean isValid() {
-		return this.valid;
+		boolean result = this.valid;
+		this.valid = true;
+		return result;
 	}
 	
 }
