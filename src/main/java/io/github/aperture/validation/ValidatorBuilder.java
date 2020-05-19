@@ -5,7 +5,7 @@ import java.util.List;
 
 public class ValidatorBuilder {
 	
-	private static ValidatorBuilder SINGLETON;
+	private static ValidatorBuilder INSTANCE;
 	private boolean valid;
 	private List<String> testsFailed;
 	
@@ -15,12 +15,12 @@ public class ValidatorBuilder {
 	}
 	
 	public static ValidatorBuilder create() {
-		SINGLETON = new ValidatorBuilder();
-		return SINGLETON;
+		INSTANCE = new ValidatorBuilder();
+		return INSTANCE;
 	}
 	
 	public static ValidatorBuilder getInstance() {
-		return SINGLETON;
+		return INSTANCE;
 	}
 	
 	public ValidatorBuilder isNull(Object source) {
@@ -28,7 +28,7 @@ public class ValidatorBuilder {
 			valid = false;
 			testsFailed.add("isNull");
 		}
-		return SINGLETON;
+		return INSTANCE;
 	}
 	
 	public ValidatorBuilder isNotNull(Object source) {
@@ -36,7 +36,7 @@ public class ValidatorBuilder {
 			valid = false;
 			testsFailed.add("isNotNull");
 		}
-		return SINGLETON;
+		return INSTANCE;
 	}
 	
 	public ValidatorBuilder isType(Object source, Class<?> type) {
@@ -44,7 +44,7 @@ public class ValidatorBuilder {
 			valid = false;
 			testsFailed.add("isType");
 		}
-		return SINGLETON;
+		return INSTANCE;
 	}
 	
 	public ValidatorBuilder isEqualToObject(Object source, Object reference) {
@@ -52,7 +52,7 @@ public class ValidatorBuilder {
 			valid = false;
 			testsFailed.add("isEqualToObject");
 		}
-		return SINGLETON;
+		return INSTANCE;
 	}
 	
 	public ValidatorBuilder isTrue(Boolean source) {
@@ -60,7 +60,7 @@ public class ValidatorBuilder {
 			valid = false;
 			testsFailed.add("isTrue");
 		}
-		return SINGLETON;
+		return INSTANCE;
 	}
 	
 	public ValidatorBuilder isFalse(Boolean source) {
@@ -68,7 +68,7 @@ public class ValidatorBuilder {
 			valid = false;
 			testsFailed.add("isFalse");
 		}
-		return SINGLETON;
+		return INSTANCE;
 	}
 	
 	public ValidatorBuilder isStringLength(String source, Integer length) {
@@ -76,7 +76,7 @@ public class ValidatorBuilder {
 			valid = false;
 			testsFailed.add("isStringLength");
 		}
-		return SINGLETON;
+		return INSTANCE;
 	}
 	
 	public ValidatorBuilder isStringLessThan(String source, Integer length) {
@@ -84,7 +84,7 @@ public class ValidatorBuilder {
 			valid = false;
 			testsFailed.add("isStringLessThan");
 		}
-		return SINGLETON;
+		return INSTANCE;
 	}
 	
 	public ValidatorBuilder isStringLongerThan(String source, Integer length) {
@@ -92,7 +92,7 @@ public class ValidatorBuilder {
 			valid = false;
 			testsFailed.add("isStringLongerThan");
 		}
-		return SINGLETON;
+		return INSTANCE;
 	}
 	
 	public ValidatorBuilder isEqualToNumber(Number source, Number number) {
@@ -100,7 +100,7 @@ public class ValidatorBuilder {
 			valid = false;
 			testsFailed.add("isEqualToNumber");
 		}
-		return SINGLETON;
+		return INSTANCE;
 	}
 	
 	public ValidatorBuilder isLessThan(Number source, Number number) {
@@ -108,7 +108,7 @@ public class ValidatorBuilder {
 			valid = false;
 			testsFailed.add("isLessThan");
 		}
-		return SINGLETON;
+		return INSTANCE;
 	}
 	
 	public ValidatorBuilder isGreaterThan(Number source, Number number) {
@@ -116,7 +116,7 @@ public class ValidatorBuilder {
 			valid = false;
 			testsFailed.add("isGreaterThan");
 		}
-		return SINGLETON;
+		return INSTANCE;
 	}
 	
 	public ValidatorBuilder isEmail(String source) {
@@ -124,7 +124,7 @@ public class ValidatorBuilder {
 			valid = false;
 			testsFailed.add("isEmail");
 		}
-		return SINGLETON;
+		return INSTANCE;
 	}
 	
 	public ValidatorBuilder isPhoneNumber(String source) {
@@ -132,15 +132,15 @@ public class ValidatorBuilder {
 			valid = false;
 			testsFailed.add("isPhoneNumber");
 		}
-		return SINGLETON;
+		return INSTANCE;
 	}
 	
 	public boolean isValid() {
-		return SINGLETON.valid;
+		return INSTANCE.valid;
 	}
 	
 	public List<String> getTestsFailed() {
-		return SINGLETON.testsFailed;
+		return INSTANCE.testsFailed;
 	}
 
 }
