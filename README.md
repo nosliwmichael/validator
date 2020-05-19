@@ -1,7 +1,14 @@
-# Validator_Chain
-A simple and readable way to validate objects and their properties using method chaining.
+# Validator
+A simple and readable way to validate objects and their properties using the builder syntax.
 
-The Validator class contains some basic data validation methods. 
-Each method receives an Object to validate and returns (this), the instance of the Validator class.
-Once you've exhausted all validation methods, you can resolve the validation chain by calling the "isValid()" method.
-This will return a boolean depending on whether or not any of the validation methods in your chain have failed.
+Different types of validation are grouped into separate classes: BasicValidator, NumericValidator, PatternValidator. 
+These are all brought together and used by the ValidatorBuilder class. You start by calling the static `create` method on the builder class: `ValidatorBuilder.create()` This returns a new instance of the ValidatorBuilder class. All validation methods in this class return the same instance of the class. This means you can chain your validation methods like this:
+```
+Person person = new Person("John", 26, "555-555-5555");
+boolean valid = ValidatorBuilder.create()
+.isStringLongerThan(person.getName(), 3)
+.isGreaterThan(person.age(), 20)
+.isPhoneNumber()
+.isValid();
+```
+The purpose of this project is to reduce the amount of if statements you would have to write when validating an object and its properties.
