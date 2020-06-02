@@ -1,42 +1,42 @@
-package io.github.aperture.validation;
+package com.aperture.validator.validators;
 
 import java.math.BigDecimal;
 
-public class NumericValidator {
+public interface NumericValidator {
 	
-	public static boolean isEqualTo(Number source, Number number) {
+	static boolean isEqualTo(Number source, Number number) {
 		if (source instanceof Integer && number instanceof Integer) {
 			return isEqualToInteger((int)source, (int)number);
 		} else {
 			return false;
 		}
 	}
-	
-	public static boolean isLessThan(Number source, Number number) {
+
+	static boolean isLessThan(Number source, Number number) {
 		if (source instanceof Integer && number instanceof Integer) {
 			return isLessThanInteger((int)source, (int)number);
 		} else {
 			return false;
 		}
 	}
-	
-	public static boolean isGreaterThan(Number source, Number number) {
+
+	static boolean isGreaterThan(Number source, Number number) {
 		if (source instanceof Integer && number instanceof Integer) {
 			return isGreaterThanInteger((int)source, (int)number);
 		} else {
 			return false;
 		}
 	}
-	
-	public static boolean isEqualToInteger(Integer source, Integer number) {
+
+	static boolean isEqualToInteger(Integer source, Integer number) {
 		if (BasicValidator.isNotNull(source)) {
-			return source == number;
+			return source.equals(number);
 		} else {
 			return false;
 		}
 	}
 
-	public static boolean isLessThanInteger(Integer source, Integer number) {
+	static boolean isLessThanInteger(Integer source, Integer number) {
 		if (BasicValidator.isNotNull(source) && BasicValidator.isNotNull(number)) {
 			return source < number;
 		} else {
@@ -44,23 +44,23 @@ public class NumericValidator {
 		}
 	}
 
-	public static boolean isGreaterThanInteger(Integer source, Integer number) {
+	static boolean isGreaterThanInteger(Integer source, Integer number) {
 		if (BasicValidator.isNotNull(source) && BasicValidator.isNotNull(number)) {
 			return source > number;
 		} else {
 			return false;
 		}
 	}
-	
-	public static boolean isEqualToLong(Long source, Long number) {
+
+	static boolean isEqualToLong(Long source, Long number) {
 		if (BasicValidator.isNotNull(source)) {
-			return source == number;
+			return source.equals(number);
 		} else {
 			return false;
 		}
 	}
 
-	public static boolean isLessThanLong(Long source, Long number) {
+	static boolean isLessThanLong(Long source, Long number) {
 		if (BasicValidator.isNotNull(source) && BasicValidator.isNotNull(number)) {
 			return source < number;
 		} else {
@@ -68,23 +68,23 @@ public class NumericValidator {
 		}
 	}
 
-	public static boolean isGreaterThanLong(Long source, Long number) {
+	static boolean isGreaterThanLong(Long source, Long number) {
 		if (BasicValidator.isNotNull(source) && BasicValidator.isNotNull(number)) {
 			return source > number;
 		} else {
 			return false;
 		}
 	}
-	
-	public static boolean isEqualToDouble(Double source, Double number) {
+
+	static boolean isEqualToDouble(Double source, Double number) {
 		if (BasicValidator.isNotNull(source)) {
-			return source == number;
+			return source.equals(number);
 		} else {
 			return false;
 		}
 	}
 
-	public static boolean isLessThanDouble(Double source, Double number) {
+	static boolean isLessThanDouble(Double source, Double number) {
 		if (BasicValidator.isNotNull(source) && BasicValidator.isNotNull(number)) {
 			return source < number;
 		} else {
@@ -92,23 +92,23 @@ public class NumericValidator {
 		}
 	}
 
-	public static boolean isGreaterThanDouble(Double source, Double number) {
+	static boolean isGreaterThanDouble(Double source, Double number) {
 		if (BasicValidator.isNotNull(source) && BasicValidator.isNotNull(number)) {
 			return source > number;
 		} else {
 			return false;
 		}
 	}
-	
-	public static boolean isEqualToFloat(Float source, Float number) {
+
+	static boolean isEqualToFloat(Float source, Float number) {
 		if (BasicValidator.isNotNull(source)) {
-			return source == number;
+			return source.equals(number);
 		} else {
 			return false;
 		}
 	}
 
-	public static boolean isLessThanFloat(Float source, Float number) {
+	static boolean isLessThanFloat(Float source, Float number) {
 		if (BasicValidator.isNotNull(source) && BasicValidator.isNotNull(number)) {
 			return source < number;
 		} else {
@@ -116,15 +116,15 @@ public class NumericValidator {
 		}
 	}
 
-	public static boolean isGreaterThanFloat(Float source, Float number) {
+	static boolean isGreaterThanFloat(Float source, Float number) {
 		if (BasicValidator.isNotNull(source) && BasicValidator.isNotNull(number)) {
 			return source > number;
 		} else {
 			return false;
 		}
 	}
-	
-	public static boolean isEqualToBigDecimal(BigDecimal source, BigDecimal number) {
+
+	static boolean isEqualToBigDecimal(BigDecimal source, BigDecimal number) {
 		if (BasicValidator.isNotNull(source) && BasicValidator.isNotNull(number)) {
 			return source.compareTo(number) == 0;
 		} else {
@@ -132,7 +132,7 @@ public class NumericValidator {
 		}
 	}
 
-	public static boolean isLessThanBigDecimal(BigDecimal source, BigDecimal number) {
+	static boolean isLessThanBigDecimal(BigDecimal source, BigDecimal number) {
 		if (BasicValidator.isNotNull(source) && BasicValidator.isNotNull(number)) {
 			return source.compareTo(number) < 0;
 		} else {
@@ -140,7 +140,7 @@ public class NumericValidator {
 		}
 	}
 
-	public static boolean isGreaterThanBigDecimal(BigDecimal source, BigDecimal number) {
+	static boolean isGreaterThanBigDecimal(BigDecimal source, BigDecimal number) {
 		if (BasicValidator.isNotNull(source) && BasicValidator.isNotNull(number)) {
 			return source.compareTo(number) > 0;
 		} else {
